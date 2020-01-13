@@ -40,6 +40,7 @@ The peer receiving VRRP adverts
 None.
 
 ## Example Playbook 
+[![keepalived.png](https://i.postimg.cc/c18zvcRV/keepalived.png)](https://postimg.cc/mhBjqC6w)
 ### Keepalive MASTER peer
 
     - hosts: haproxy_master
@@ -52,7 +53,7 @@ None.
         unicast_src_ip: "{{ ansible_facts['default_ipv4']['address'] }}"
         unicast_peer: "192.168.122.102"
       roles:
-        - { role: steveturns.haproxy }
+        - { role: stephenturns.haproxy }
 ### Keepalive SLAVE peer
 
     - hosts: haproxy_slave
@@ -65,7 +66,7 @@ None.
         unicast_src_ip: "{{ ansible_facts['default_ipv4']['address'] }}"
         unicast_peer: "192.168.122.101"
       roles:
-        - { role: steveturns.haproxy }
+        - { role: stephenturns.haproxy }
 
 ## License
 
