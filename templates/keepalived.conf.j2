@@ -1,0 +1,22 @@
+! Configuration File for keepalived
+
+global_defs {
+}
+
+vrrp_instance VI_1 {
+    track_interface {
+      {{ vrrp_interface }}
+    }
+    state {{ vrrp_state }}
+    interface {{ vrrp_interface }}
+    virtual_router_id {{ vrrp_virtual_router_id }}
+    priority {{ vrrp_priority }}
+    advert_int 1
+    unicast_src_ip {{ unicast_src_ip }}
+    unicast_peer {
+      {{ unicast_peer }}
+    }
+    virtual_ipaddress {
+        {{ virtual_ipaddress }}
+    }
+}

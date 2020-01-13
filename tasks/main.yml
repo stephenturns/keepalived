@@ -1,0 +1,25 @@
+---
+# tasks file for keepalived
+- name: install keepalived package
+  yum:
+    name: keepalived
+    state: present
+
+- name: template keepalived.conf
+  template:
+    src: keepalived.conf.j2
+    dest: '/etc/keepalived/keepalived.conf'
+  notify: restart keepalived
+
+- name: firewalld rich rule keepalived vrrp protocol
+  firewalld:
+    rich_rule: 'rule protocol value="vrrp" accept'
+    permanent: yes
+    immediate: yes
+    state: enabled
+
+- name: Enable firewalld service
+  service:
+    name: keepalived
+    enabled: yes
+  

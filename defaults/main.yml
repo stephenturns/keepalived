@@ -1,0 +1,10 @@
+---
+# defaults file for keepalived
+vrrp_state: "MASTER"
+vrrp_interface: "{{ ansible_facts['default_ipv4']['interface'] }}"
+vrrp_virtual_router_id: 1
+vrrp_priority: 100
+
+virtual_ipaddress: "192.168.122.100"
+unicast_src_ip: "{{ ansible_facts['default_ipv4']['address'] }}"
+unicast_peer: "192.168.122.64"
