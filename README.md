@@ -53,7 +53,7 @@ None.
         unicast_src_ip: "{{ ansible_facts['default_ipv4']['address'] }}"
         unicast_peer: "192.168.122.102"
       roles:
-        - { role: stephenturns.haproxy }
+        - { role: stephenturns.keepalived }
 ### Keepalive SLAVE peer
 
     - hosts: haproxy_slave
@@ -66,7 +66,7 @@ None.
         unicast_src_ip: "{{ ansible_facts['default_ipv4']['address'] }}"
         unicast_peer: "192.168.122.101"
       roles:
-        - { role: stephenturns.haproxy }
+        - { role: stephenturns.keepalived }
 
 ## License
 
